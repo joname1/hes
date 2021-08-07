@@ -44,18 +44,23 @@
     btn.onclick = function (event) {
         $("#submit").addClass("disabled");
         screenBox.src = '';
-        var name1 = $('#input-name').val();
-        var name2 = $('#input-sex').val();
-        var name3 = $('#input-idn').val();
-        var name4 = $('#input-age').val() + '岁';
-        var name5 = $('#input-date').val();
-        var name6 = Math.round(Math.random() * 1000) < 10 ? '9210710000' + Math.round(Math.random() * 1000) :
+        var name = $('#input-name').val();
+        var sex = $("#input-sex option:selected").val()
+        var idcard = $('#input-idn').val();
+        var age = $('#input-age').val() + '岁';
+        var dates = $('#input-date').val();
+        var id = Math.round(Math.random() * 1000) < 10 ? '9210710000' + Math.round(Math.random() * 1000) :
             '921071000' + Math.round(Math.random() * 1000);
         var name7 = $('#input-address').val();
-        var name8 = Math.round(Math.random() * 1000) < 10 ? '00' + Math.round(Math.random() * 1000) + '-2' : Math
+        var sid = Math.round(Math.random() * 1000) < 10 ? '00' + Math.round(Math.random() * 1000) + '-2' : Math
             .round(Math.random() * 1000) + '-2';
-        if (isNull(name1)) {
-            toastr.error("请填写姓名!");
+        if (isNull(name)) {
+            toastr.error("请填写姓名");
+            $("#submit").removeClass("disabled");
+            return false;
+        }
+        if (sex === '请选择') {
+            toastr.error("请选择性别");
             $("#submit").removeClass("disabled");
             return false;
         }
@@ -71,23 +76,23 @@
             // var scale = img2.height / img2.width;
             // var cheight = 160 * scale;
             // ctx.drawImage(img2, 290, 35, 160, cheight);
-            setName(ctx, 50, 110, name5); //date
+            setName(ctx, 50, 110, dates); //date
 
-            setName(ctx, 180, 270, name1); //name
-            setName(ctx, 180, 320, name2); //sex
-            setName(ctx, 180, 365, name4); //age
+            setName(ctx, 180, 270, name); //name
+            setName(ctx, 180, 320, sex); //sex
+            setName(ctx, 180, 368, age); //age
 
-            setName(ctx, 1055, 270, name3); //id-number
-            setName(ctx, 1055, 320, name6); //id
-            setName(ctx, 1055, 365, name8); //sample-id
+            setName(ctx, 1055, 270, idcard); //idcard
+            setName(ctx, 1055, 320, id); //id
+            setName(ctx, 1055, 368, sid); //sample-id
 
-            setName(ctx, 2025, 270, name5 + ' ' + '16:37'); //t1
-            setName(ctx, 2025, 320, name5 + ' ' + '19:58'); //t2
-            setName(ctx, 2025, 365, name5 + ' ' + '19:58'); //t3
+            setName(ctx, 2025, 270, dates + ' ' + '16:37'); //t1
+            setName(ctx, 2025, 320, dates + ' ' + '19:58'); //t2
+            setName(ctx, 2025, 368, dates + ' ' + '19:58'); //t3
 
-            setName(ctx, 1410, 1513, name5 + ' ' + '23:15'); //t4
-            setName(ctx, 2030, 1513, name5 + ' ' + '23:19'); //t5
-            setName2(ctx);
+            setName(ctx, 1410, 1515, dates + ' ' + '23:15'); //t4
+            setName(ctx, 2030, 1515, dates + ' ' + '23:19'); //t5
+            setsex(ctx);
             var dataUrl = canv.toDataURL('image/jpg', 1);
             screenBox.src = dataUrl;
         }
@@ -100,14 +105,14 @@
             context.fillStyle = colo;
             context.font = fonts;
             context.textAlign = "left";
-            var lineWidth = 0;
+            // var lineWidth = 0;
             var initHeight = top;
             var lastSubStrIndex = 0;
             context.fillText(name.substring(lastSubStrIndex, name.length), left, initHeight);
             context.fill();
         }
 
-        function setName2(context) {
+        function setsex(context) {
             context.shadowColor = 'rgba(0, 0, 0, 0.4)';
             context.shadowBlur = 2;
             context.fillStyle = colo;
@@ -143,4 +148,11 @@
 
     function closegif() {
         $("#modal-demo").attr("class", "modal");
+    }
+
+    function getpdf() {
+        var sources = document.getElementById('makePic')
+        var jpdf = new jsPDF();
+        jpdf.addImage(sources, 'JPEG', 10, 40, 192, 132, '', 'FAST')
+        jpdf.save("report.pdf");
     }
