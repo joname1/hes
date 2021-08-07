@@ -35,23 +35,28 @@
                                     <label class="form-label text-bold" for="input-name">姓名</label>
                                 </div>
                                 <div class="col-6 col-sm-9">
-                                    <input class="form-input" type="text" id="input-name" value="吴亦凡">
+                                    <input class="form-input" type="text" id="input-name" value="佩服" maxlength="6">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-2 col-sm-3">
                                     <label class="form-label text-bold" for="input-sex">性别</label>
                                 </div>
-                                <div class="col-6 col-sm-9">
-                                    <input class="form-input" type="text" id="input-sex" value="男">
-                                </div>
+                                <div class="form-group col-6 col-sm-9">
+                                    <select class="form-select" id="input-sex">
+                                      <option>请选择</option>
+                                      <option>男</option>
+                                      <option>女</option>
+                                    </select>
+                                  </div>
+                                  
                             </div>
                             <div class="form-group">
                                 <div class="col-2 col-sm-3">
                                     <label class="form-label text-bold" for="input-idn">身份证号</label>
                                 </div>
                                 <div class="col-6 col-sm-9">
-                                    <input class="form-input" type="text" id="input-idn" value="45002219890101891X">
+                                    <input class="form-input" type="text" id="input-idn" value="12345678" maxlength="18">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -59,7 +64,7 @@
                                     <label class="form-label text-bold" for="input-age">年龄</label>
                                 </div>
                                 <div class="col-6 col-sm-9">
-                                    <input class="form-input" type="text" id="input-age" value="32">
+                                    <input class="form-input" type="text" id="input-age" value="9" maxlength="2">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -67,7 +72,7 @@
                                     <label class="form-label text-bold" for="input-date">时间</label>
                                 </div>
                                 <div class="col-6 col-sm-9">
-                                    <input class="form-input" type="text" id="input-date" value="2021-10-10">
+                                    <input class="form-input" id="input-date" type="date" value="2021-01-01">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -97,14 +102,15 @@
                 <a href="javascript:void(0);" onclick="closegif()" id="dis1" class="btn btn-clear float-right"
                     aria-label="Close"></a>
                 <div class="modal-title h6">
-                    电脑：右键另存为。手机：长按保存到本地
+                    电脑：右键另存为。手机：长按保存到本地。<a href="javascript:;" onclick="getpdf()">下载PDF</a>
                 </div>
+                
             </div>
             <div class="modal-body text-center">
                 <div class="mt-1">
                     <img style="display: inline;height: auto;max-width: 100%;" id="makePic" src="">
                 </div>
-                <div id="size"></div>
+                <!-- <div id="size"></div> -->
             </div>
         </div>
     </div>
@@ -117,5 +123,7 @@
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/fontfaceobserver/2.0.13/fontfaceobserver.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 <script src="bundle.js"></script>
 </html>
