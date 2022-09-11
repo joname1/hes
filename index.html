@@ -2,128 +2,134 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.bootcdn.net/ajax/libs/spectre.css/0.5.8/spectre.min.css" rel="stylesheet">
-    <link href="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
-    <style>
-        @font-face {
-            font-family: 'Simple';
-            src: url('Simple.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link href="https://cdn.staticfile.org/spectre.css/0.5.8/spectre.min.css" rel="stylesheet" />
+  <link href="https://cdn.staticfile.org/toastr.js/2.1.4/toastr.min.css" rel="stylesheet" />
+  <style>
+    @font-face {
+      font-family: "Simple";
+      src: url('https://qiniu.yuhuofei.it/FqBKOG3udS7VH88TXeAupxxjGbLa') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    .container{
+      max-width: 1280px;
+    }
+  </style>
 </head>
 
 <body>
-    <div class="container" style="max-width: 1280px;">
-        <div class="columns">
-            <div class="column col-xl-12 col-md-12 col-xs-12">
-                <div class="docs-demo columns">
-                    <div class="column col-8 col-xs-12 col-xl-12">
-                        <h1 style="font-size:32px;text-align: center;">你懂的生成器</h1>
-                        <p class="text-bold" style="text-align: center;">
-                            开始制作吧！输入信息，点击生成即可
-                        </p>
-                        <form class="form-horizontal text-center">
-                            <div class="form-group">
-                                <div class="col-2 col-sm-3">
-                                    <label class="form-label text-bold" for="input-name">姓名</label>
-                                </div>
-                                <div class="col-6 col-sm-9">
-                                    <input class="form-input" type="text" id="input-name" value="佩服" maxlength="6">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-2 col-sm-3">
-                                    <label class="form-label text-bold" for="input-sex">性别</label>
-                                </div>
-                                <div class="form-group col-6 col-sm-9">
-                                    <select class="form-select" id="input-sex">
-                                      <option>请选择</option>
-                                      <option>男</option>
-                                      <option>女</option>
-                                    </select>
-                                  </div>
-                                  
-                            </div>
-                            <div class="form-group">
-                                <div class="col-2 col-sm-3">
-                                    <label class="form-label text-bold" for="input-idn">身份证号</label>
-                                </div>
-                                <div class="col-6 col-sm-9">
-                                    <input class="form-input" type="text" id="input-idn" value="12345678" maxlength="18">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-2 col-sm-3">
-                                    <label class="form-label text-bold" for="input-age">年龄</label>
-                                </div>
-                                <div class="col-6 col-sm-9">
-                                    <input class="form-input" type="text" id="input-age" value="9" maxlength="2">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-2 col-sm-3">
-                                    <label class="form-label text-bold" for="input-date">时间</label>
-                                </div>
-                                <div class="col-6 col-sm-9">
-                                    <input class="form-input" id="input-date" type="date" value="2021-01-01">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <!-- <div class="col-2 col-sm-3">
+  <div class="container">
+    <div class="columns">
+      <div class="column col-xl-12 col-md-12 col-xs-12">
+        <div class="docs-demo columns">
+          <div class="column col-8 col-xs-12 col-xl-12">
+            <h1 style="font-size:32px;text-align: center;">你懂的生成器</h1>
+            <p class="text-bold" style="text-align: center;">
+              开始制作吧！输入信息，点击生成即可
+            </p>
+            <form class="form-horizontal text-center">
+              <div class="form-group">
+                <div class="col-2 col-sm-3">
+                  <label class="form-label text-bold" for="input-name">姓名</label>
+                </div>
+                <div class="col-6 col-sm-9">
+                  <input class="form-input" type="text" id="input-name" placeholder="如: 张三李四王五" value=""
+                    maxlength="6" />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-2 col-sm-3">
+                  <label class="form-label text-bold" for="input-sex">性别</label>
+                </div>
+                <div class="form-group col-6 col-sm-9">
+                  <select class="form-select" id="input-sex">
+                    <option>请选择</option>
+                    <option>男</option>
+                    <option>女</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-2 col-sm-3">
+                  <label class="form-label text-bold" for="input-idn">身份证号</label>
+                </div>
+                <div class="col-6 col-sm-9">
+                  <input class="form-input" type="text" id="input-idn" placeholder="1234567890" value=""
+                    maxlength="18" />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-2 col-sm-3">
+                  <label class="form-label text-bold" for="input-age">年龄</label>
+                </div>
+                <div class="col-6 col-sm-9">
+                  <input class="form-input" type="text" id="input-age" placeholder="123" value="" maxlength="3" />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-2 col-sm-3">
+                  <label class="form-label text-bold" for="input-date">时间</label>
+                </div>
+                <div class="col-6 col-sm-9">
+                  <input class="form-input" id="input-date" type="date" value="2022-01-01" />
+                </div>
+              </div>
+              <div class="form-group">
+                <!-- <div class="col-2 col-sm-3">
                                     <label class="form-label text-bold" for="input-address">xxx</label>
                                 </div> -->
-                                <div class="col-6 col-sm-9">
-                                    <input class="form-input" id="input-address" value="" type="hidden">
-                                </div>
-                            </div>
-                        </form>
-                        <div class="col-10 col-sm-12 text-center">
-                            <button class="btn btn-success" id="submit">点击生成</button>
-                            <!-- <input type="hidden" class="btn btn-primary" id="color" style="background: black;"></input> -->
-                        </div>
-
-                    </div>
+                <div class="col-6 col-sm-9">
+                  <input class="form-input" id="input-address" value="" type="hidden" />
                 </div>
+              </div>
+            </form>
+            <div class="col-10 col-sm-12 text-center">
+              <button class="btn btn-success" id="submit">点击生成</button>
+              <!-- <input type="hidden" class="btn btn-primary" id="color" style="background: black;"></input> -->
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <div class="modal" id="modal-demo">
-        <a href="javascript:void(0);" class="modal-overlay" aria-label="Close"></a>
-        <div class="modal-container">
-            <div class="modal-header">
-                <a href="javascript:void(0);" onclick="closegif()" id="dis1" class="btn btn-clear float-right"
-                    aria-label="Close"></a>
-                <div class="modal-title h6">
-                    电脑：右键另存为。手机：长按保存到本地。<a href="javascript:;" onclick="getpdf()">下载PDF</a>
-                </div>
-                
-            </div>
-            <div class="modal-body text-center">
-                <div class="mt-1">
-                    <img style="display: inline;height: auto;max-width: 100%;" id="makePic" src="">
-                </div>
-                <!-- <div id="size"></div> -->
-            </div>
+  <div class="modal" id="modal-demo">
+    <a href="javascript:void(0);" class="modal-overlay" aria-label="Close"></a>
+    <div class="modal-container">
+      <div class="modal-header">
+        <a href="javascript:void(0);" onclick="closegif()" id="dis1" class="btn btn-clear float-right"
+          aria-label="Close"></a>
+        <div class="modal-title h6">
+          电脑：右键另存为。手机：长按保存到相册。<a href="javascript:;" onclick="getpdf()">点击下载PDF</a>
         </div>
+      </div>
+      <div class="modal-body text-center">
+        <div class="mt-1">
+          <img style="display: inline;height: auto;max-width: 100%;" id="makePic" src="" />
+        </div>
+        <!-- <div id="size"></div> -->
+      </div>
     </div>
-    <canvas id="myCanvas" style="display: none"></canvas>
-    <input id="upload" value="" type="hidden">
-    <input id="local" value="https://i.loli.net/2021/08/05/Yf6KSLBUGAIEXpe.jpg" type="hidden">
-
-
+  </div>
+  <canvas id="myCanvas" style="display: none"></canvas>
+  <input id="upload" value="" type="hidden" />
+<!--   <input id="local" value="https://i.loli.net/2021/08/05/Yf6KSLBUGAIEXpe.jpg" type="hidden" /> -->
+<input id="local" value="https://i0.hdslb.com/bfs/album/12baf82a8c1d6f2967481c512c086942694d0d7f.jpg" type="hidden">
 </body>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/fontfaceobserver/2.0.13/fontfaceobserver.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-<script src="bundle.js"></script>
+
+<script src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/toastr.js/2.1.4/toastr.min.js"></script>
+<script src="https://cdn.staticfile.org/fontfaceobserver/2.0.13/fontfaceobserver.js"></script>
+<script src="https://cdn.staticfile.org/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+<script src="https://cdn.staticfile.org/jspdf/1.3.4/jspdf.min.js"></script>
+<script src="https://qiniu.yuhuofei.it/Fl4329SLMWcsi-oSrrhKr6qI3_tX"></script>
+<!-- <script src="https://qiniu.yuhuofei.it/FuLom7PWHjMVroso37qE9QI19Bm6"></script> -->
 </html>
+
+
+
